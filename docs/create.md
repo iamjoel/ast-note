@@ -1,7 +1,7 @@
 # 创建 AST 节点
 AST (Abstract Syntax Tree(抽象语法树)) 是源代码语法结构的一种抽象表示。不了解 AST 的，可以看[这篇文章](https://www.jianshu.com/p/6fa90ee14d0e)。
 
-本文用 [@babel/types](https://babeljs.io/docs/en/next/babel-types.html) 来创建 AST节点。@babel/types 是根据 babel 的 AST 规范来创建 AST。查看规范见[这里](https://github.com/babel/babel/blob/master/packages/babel-parser/ast/spec.md)。
+创建 AST 节点是转换AST节点时的常见操作。本文用 [@babel/types](https://babeljs.io/docs/en/next/babel-types.html) 来创建 AST节点。@babel/types 是根据 babel 的 AST 规范来创建 AST。规范说明见[这里](https://github.com/babel/babel/blob/master/packages/babel-parser/ast/spec.md)。
 
 下面，我们来具体看代码。代码中的 `t` 为 `require('@babel/types')`。完整代码见[这里](https://github.com/iamjoel/ast-note/blob/master/src/create.js)。
 
