@@ -83,13 +83,17 @@ const source = fs.readFileSync('./src/test-file/template.vue', 'utf-8')
 
 try {
   // http://caibaojian.com/vue-design/tools/
-  const parserRes = parser(source)
-  console.log(parserRes)
+  // const parserRes = parser(source)
+  // console.log(parserRes) // 输出 {}...
+  // 考虑看看 cheerio,jquery 之类解析html的。。。
+  // @ 和 :会报错
+  let code = source.replace(/@/g, 'data-bind').replace(/:/g, 'data-bind2-')
+  // console.log(code)
 
-  // const ast = parse(source, {
-  //   Plugins: parser
-  // })
-  // console.log(ast)
+  const ast = parse(code, {plugins: ['jsx']})
+  let res = generate(ast, {}, code).code.replace(/data-bind/g, '@').replace(/data-bind2-/g, ':')
+
+  console.log(res)
 } catch(e) {
   console.error(e)
 }
