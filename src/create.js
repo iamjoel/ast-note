@@ -281,5 +281,5 @@ ast.program.body.push(funCall)
 const output = generate(ast, {}, code)
 console.log(output.code)
 
-module.export = ast
+module.exports = ast
 
