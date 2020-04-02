@@ -74,7 +74,25 @@ function modifyObj(code, objIdentifier, keyName, value) {
   })
   return generate(ast, {}, code).code
 }
+// 解析vue
+const parser = require('@vuese/parser').parser
+const fs = require('fs-extra')
+const path = require('path')
 
+const source = fs.readFileSync('./src/test-file/template.vue', 'utf-8')
+
+try {
+  // http://caibaojian.com/vue-design/tools/
+  const parserRes = parser(source)
+  console.log(parserRes)
+
+  // const ast = parse(source, {
+  //   Plugins: parser
+  // })
+  // console.log(ast)
+} catch(e) {
+  console.error(e)
+}
 // 语句的替换
 
 // 变量名的替换
